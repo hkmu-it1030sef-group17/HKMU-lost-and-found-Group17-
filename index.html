@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HKMU Lost and Found System</title>
+    <link rel="stylesheet" href="aaa.css">
+</head>
+<body>
+<div class="app-container">
+    <div class="header">
+        <div class="logo">
+            <h1>HKMU Lost & Found</h1>
+            <p>Report & Search Lost Items on Campus</p>
+        </div>
+        <div class="user-info">
+            <span id="greetingText">Not logged in</span>
+            <button id="globalLogoutBtn" style="display:none;">Logout</button>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <!-- Home Panel -->
+        <div id="homePanel" class="panel active-panel">
+            <div class="home-buttons">
+                <button id="toStudentLoginBtn">Student Login</button>
+                <button id="toStudentRegBtn">Student Register</button>
+                <button id="toAdminLoginBtn">Admin Login</button>
+            </div>
+        </div>
+
+        <!-- Login Panel -->
+        <div id="loginPanel" class="panel">
+            <h3>Login</h3>
+            <input type="text" id="loginUid" placeholder="Student ID / admin001">
+            <input type="password" id="loginPwd" placeholder="Password">
+            <select id="loginRole">
+                <option value="student">Student</option>
+                <option value="admin">Admin</option>
+            </select>
+            <button id="loginSubmitBtn">Login</button>
+            <button id="loginBackBtn">Back</button>
+        </div>
+
+        <!-- Register Panel -->
+        <div id="regPanel" class="panel">
+            <h3>Student Registration</h3>
+            <input type="text" id="regSid" placeholder="Student ID (s + 7 digits)">
+            <input type="password" id="regPwd" placeholder="Password (≥8 characters)">
+            <input type="password" id="regPwd2" placeholder="Confirm password">
+            <button id="regSubmitBtn">Register</button>
+            <button id="regBackBtn">Back</button>
+        </div>
+
+        <!-- Student Panel -->
+        <div id="studentPanel" class="panel">
+            <div>
+                <span id="studentIdSpan"></span>
+                <button id="logoutStudentBtn" style="float:right;">Logout</button>
+            </div>
+            <div class="form-card">
+                <h4>Report Lost Item</h4>
+                <input type="text" id="reporterName" placeholder="Your Name*">
+                
+                <input type="text" id="itemName" placeholder="Item Name*">
+                <select id="itemType">
+                    <option>Student ID Card</option><option>Laptop</option><option>Umbrella</option><option>Wallet</option><option>Other</option>
+                </select>
+                <select id="campusSelect"><option>MC</option><option>JCC</option><option>IOH</option></select>
+                <select id="floorSelect"></select>
+                <input type="date" id="lostDate">
+                
+                <div style="display: flex; gap: 10px; margin-bottom: 16px;">
+                    <input type="tel" id="contactPhone" placeholder="Phone (8 digits)*" style="margin-bottom: 0;">
+                    <input type="text" id="contactWhatsapp" placeholder="WhatsApp (Optional)" style="margin-bottom: 0;">
+                </div>
+                <input type="email" id="contactEmail" placeholder="Email Address (Optional)">
+                
+                <input type="file" id="itemImage" accept="image/*">
+                <textarea id="itemDesc" rows="2" placeholder="Description"></textarea>
+                <button id="submitItemBtn">Submit</button>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search by name / type / location">
+                <button id="searchBtn">Search</button>
+                <button id="resetSearchBtn">Reset</button>
+            </div>
+            <table id="itemsTable">
+                <thead>
+                    <tr><th>Image</th><th>ID</th><th>Name</th><th>Type</th><th>Location</th><th>Date</th><th>Contact</th><th>Reporter</th><th>Description</th><th>Status</th><th>Action</th></tr>
+                </thead>
+                <tbody id="itemsTableBody"></tbody>
+            </table>
+
+            <!-- 导出/导入按钮 -->
+            <div style="display: flex; gap: 15px; justify-content: flex-end; margin-top: 20px;">
+                <button id="exportDataBtn" style="background: #3498db;">📥 Export Data</button>
+                <button id="importDataBtn" style="background: #f39c12;">📤 Import Data</button>
+                <input type="file" id="importFileInput" accept=".json" style="display: none;">
+            </div>
+        </div>
+
+        <!-- Admin Panel -->
+        <div id="adminPanel" class="panel">
+            <div>
+                <h3>Admin Dashboard</h3>
+                <button id="logoutAdminBtn" style="float:right;">Logout</button>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="adminSearchInput" placeholder="Search...">
+                <button id="adminSearchBtn">Search</button>
+                <button id="adminResetBtn">Reset</button>
+            </div>
+            <table id="adminItemsTable">
+                <thead>
+                    <tr><th>Image</th><th>ID</th><th>Name</th><th>Type</th><th>Location</th><th>Date</th><th>Contact</th><th>Reporter</th><th>Description</th><th>Status</th><th>Action</th></tr>
+                </thead>
+                <tbody id="adminTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

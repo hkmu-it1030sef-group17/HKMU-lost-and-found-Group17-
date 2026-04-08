@@ -1,0 +1,321 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Poppins', Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+    min-height: 100vh;
+    padding: 30px 20px;
+}
+
+.app-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== 头部设计 ========== */
+.header {
+    background: linear-gradient(135deg, #003d6b 0%, #002a4a 100%);
+    color: white;
+    padding: 22px 32px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 25px rgba(0,61,107,0.2);
+}
+
+.logo h1 {
+    font-size: 26px;
+    letter-spacing: -0.5px;
+    margin-bottom: 5px;
+}
+
+.logo h1::before {
+    content: "🎓 ";
+    font-size: 28px;
+}
+
+.logo p {
+    font-size: 13px;
+    opacity: 0.85;
+}
+
+.user-info {
+    background: rgba(255,255,255,0.12);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-info button {
+    background: #e74c3c;
+    padding: 6px 14px;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.user-info button:hover {
+    background: #c0392b;
+    transform: scale(1.02);
+}
+
+/* ========== 面板卡片 ========== */
+.panel {
+    background: white;
+    border-radius: 24px;
+    padding: 28px 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    display: none;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0,61,107,0.08);
+}
+
+.panel.active-panel {
+    display: block;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== 首页按钮 ========== */
+.home-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 50px 0 30px;
+    flex-wrap: wrap;
+}
+
+.home-buttons button {
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #003d6b 0%, #005a9c 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.25s;
+    box-shadow: 0 4px 10px rgba(0,61,107,0.25);
+}
+
+.home-buttons button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,61,107,0.3);
+}
+
+/* ========== 表单样式 ========== */
+.panel h3, .panel h4 {
+    margin-bottom: 22px;
+    color: #003d6b;
+    font-weight: 600;
+    border-left: 5px solid #e8a735;
+    padding-left: 15px;
+}
+
+.form-card {
+    background: #f9fbfd;
+    padding: 22px 25px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+    border: 1px solid #eef2f6;
+}
+
+.panel input,
+.panel select,
+.panel textarea {
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    border: 1px solid #dce4ec;
+    border-radius: 14px;
+    font-size: 14px;
+    transition: 0.2s;
+    background: white;
+}
+
+.panel input:focus,
+.panel select:focus,
+.panel textarea:focus {
+    outline: none;
+    border-color: #003d6b;
+    box-shadow: 0 0 0 3px rgba(0,61,107,0.1);
+}
+
+/* ========== 按钮配色 ========== */
+#loginSubmitBtn,
+#regSubmitBtn,
+#searchBtn,
+#adminSearchBtn,
+#submitItemBtn {
+    background: #003d6b;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+#loginSubmitBtn:hover,
+#regSubmitBtn:hover,
+#searchBtn:hover,
+#adminSearchBtn:hover,
+#submitItemBtn:hover {
+    background: #002a4a;
+    transform: translateY(-1px);
+}
+
+#submitItemBtn {
+    background: #27ae60;
+}
+
+#submitItemBtn:hover {
+    background: #219a52;
+}
+
+#loginBackBtn,
+#regBackBtn,
+#logoutStudentBtn,
+#logoutAdminBtn,
+#globalLogoutBtn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+#resetSearchBtn,
+#adminResetBtn {
+    background: #95a5a6;
+    color: white;
+}
+
+/* ========== 搜索栏 ========== */
+.search-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search-bar input {
+    flex: 2;
+    margin-bottom: 0;
+}
+
+/* ========== 表格设计 ========== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+table th {
+    background: #003d6b;
+    color: white;
+    padding: 14px 12px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+table td {
+    padding: 12px;
+    border-bottom: 1px solid #edf2f7;
+    font-size: 13px;
+}
+
+table tr:hover {
+    background: #f8fafc;
+}
+
+/* ========== 图片缩略图 ========== */
+img {
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* ========== 响应式 ========== */
+@media (max-width: 768px) {
+    .app-container {
+        padding: 0 15px;
+    }
+
+    .header {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .home-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home-buttons button {
+        width: 80%;
+    }
+
+    .panel {
+        padding: 20px;
+    }
+
+    table th, table td {
+        padding: 8px 6px;
+        font-size: 11px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+}
+.status-pending { color: #e67e22; font-weight: bold; }
+.status-resolved { color: #27ae60; font-weight: bold; }
+
+.action-btn {
+    padding: 5px 10px;
+    margin: 2px;
+    font-size: 11px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+.btn-edit { background: #3498db; }
+.btn-edit:hover { background: #2980b9; }
+.btn-resolve { background: #2ecc71; }
+.btn-resolve:hover { background: #27ae60; }
+.btn-delete { background: #e74c3c; }
+.btn-delete:hover { background: #c0392b; }
